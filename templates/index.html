@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to FaceSynthesis thesis {% endblock %}</h1>
+    <p> 
+        <strong>Obiectivele proiectului: </strong>Lucrarea se concentrează pe generarea imaginilor realistice ale fețelor umane folosind metode computaționale. 
+        Scopul principal este dezvoltarea și antrenarea unei rețele capabile să genereze imagini portret ale persoanelor, condiționate de diverse atribute. 
+        Aceste atribute încep cu cel mai simplu, genul (femeie sau bărbat), și includ apoi și alte caracteristici precum zâmbetul, culoarea părului, vârsta și prezența ochelarilor.
+        Pentru realizarea acestui scop, a fost implementat un model de rețea generativă adversarială conditționată, formată din două componente principale. 
+        Generatorul, care este o rețea convoluțională, primește un vector de zgomot și atributele dorite, procesându-le prin straturi convoluționale și generând o imagine colorată. 
+        Discriminatorul, a doua rețea, analizează imaginile generate pentru a determina dacă acestea sunt reale sau nu. 
+        Pe baza ieșirilor discriminatorului, se calculează o funcție cost folosită pentru antrenarea modelului.
+
+    </p>
+    <ul>
+        <li>
+          <strong>CGAN-64:</strong> Modelul GAN condiționat cu un singur atribut (Genul: Bărbat-1 sau Femeie-0) și ieșire de 64x64. Acesta nu produce rezultate extrem de realiste, însă sunt diferite la fiecare generare și condiționarea este destul de reușită.
+        </li>
+        <li>
+          <strong>CGAN-128:</strong> Modelul GAN condiționat cu 6 atribute (Bărbat, Tânăr, Ochelari, Breton, Păr-Brunet și Păr-Gri) și ieșire de 128x128. Imaginile sintetizate sunt realiste și variază în funcție de atributul selectat, însă lipsește diversitatea rezultatelor.
+        </li>
+        <li>
+          <strong>A2F:</strong> Modelul Attribute2Face condiționat de 4 atribute (Bărbat, Zâmbet, Ochelari, Barba) și cu ieșire de 64x64. Rezultatele sunt realiste și condiționarea este reușită, însă modelul nu produce imagini diverse.
+        </li>
+      </ul>
+      
+{% endblock %}

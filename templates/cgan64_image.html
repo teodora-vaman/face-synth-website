@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Conditional 64x64 {% endblock %}</h1>
+
+    <img src="data:image/png;base64,{{ image_data }}" alt="Generated Image">
+
+{% endblock %}

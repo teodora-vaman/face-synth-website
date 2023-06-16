@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Attribute2Face {% endblock %}</h1>
+    <form method="POST" action="{{ url_for('handle_button_click_a2f') }}">
+        <input type="radio" name="gender" id="maleRadio" value="1" >
+        <label for="maleRadio">Male</label>
+        <input type="radio" name="smile" id="smileRadio" value="0">
+        <label for="youngRadio">Smile</label>
+        <input type="radio" name="glasses" id="glassesRadio" value="1">
+        <label for="glassesRadio">Glasses</label>
+        <input type="radio" name="beard" id="beardRadio" value="1">
+        <label for="beardRadio">Beard</label>
+        <br>
+        <button type="submit">Generate!</button>
+    </form>
+
+    <!-- <form method="POST" action="{{ url_for('handle_button_click_cgan128') }}">
+        <button type="submit">Random Images</button>
+    </form> -->
+    <img src="data:image/png;base64,{{ image_data }}" alt="Generated Image" style="width: 500px; height: 500px;">
+
+
+{% endblock %}
+
+<style>
+    img {  
+        max-width: 200%;  
+        height: auto;  
+    }  
+</style>

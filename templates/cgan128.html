@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Conditional GAN 128x128 {% endblock %}</h1>
+    <form method="POST" action="{{ url_for('handle_button_click_cgan128') }}">
+        <input type="radio" name="gender" id="maleRadio" value="1" {% if male1 == '1' %}checked{% endif %}>
+        <label for="maleRadio">Male</label>
+        <input type="radio" name="age" id="youngRadio" value="0"{% if age1 == '0' %}checked{% endif %}>
+        <!-- <input type="range" name="age" id="ageSlider" min="0" max="1" value="{{ age }}" oninput="ageOutput.value = this.value">
+        <output name="ageOutput" id="ageOutput">{{ age }}</output> -->
+        <label for="youngRadio">Young</label>
+        <input type="radio" name="glasses" id="glassesRadio" value="1"{% if glasses1 == '1' %}checked{% endif %}>
+        <label for="glassesRadio">Glasses</label>
+        <input type="radio" name="bangs" id="bangsRadio" value="1"{% if bangs1 == '1' %}checked{% endif %}>
+        <label for="bangsRadio">Bangs</label>
+        <input type="radio" name="blackHair" id="blackHairRadio" value="1"{% if blackHair1 == '1' %}checked{% endif %}>
+        <label for="blackHairRadio">Black Hair</label>
+        <input type="radio" name="grayHair" id="greyHairRadio" value="1"{% if grayHair1 == '1' %}checked{% endif %}>
+        <label for="greyHairRadio">Grey Hair</label>
+        <br>
+        <button type="submit">Generate!</button>
+    </form>
+
+    <!-- <form method="POST" action="{{ url_for('handle_button_click_cgan128') }}">
+        <button type="submit">Random Images</button>
+    </form> -->
+    <img src="data:image/png;base64,{{ image_data }}" alt="Generated Image" style="width: 500px; height: 500px;">
+
+
+{% endblock %}
+
+<style>
+    img {  
+        max-width: 100%;  
+        height: auto;  
+    }  
+</style>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Conditional GAN 64x64 {% endblock %}</h1>
+    <form method="POST" action="{{ url_for('handle_button_click_cgan64') }}">
+        <input type="radio" name="gender" id="maleRadio" value="1" checked>
+        <label for="maleRadio">Male</label>
+        <input type="radio" name="gender" id="femaleRadio" value="0" >
+        <label for="femaleRadio">Female</label>
+        <br>
+        <button type="submit">Generate!</button>
+    </form>
+
+    <!-- <form method="POST" action="{{ url_for('handle_button_click_cgan64') }}">
+        <button type="submit">Random Images</button>
+    </form> -->
+    <img src="data:image/png;base64,{{ image_data }}" alt="Generated Image" style="width: 500px; height: 500px;">
+
+
+{% endblock %}
+
+<style>
+    img {  
+        max-width: 100%;  
+        height: auto;  
+    }  
+</style>
